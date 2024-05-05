@@ -1,0 +1,16 @@
+{
+  "name": "static",
+  "version": "1.0.0",
+  "description": "- [x] **External Admin Dashboard**: Implement an external admin dashboard for easy content management.\r - [x] **Dynamic Posts**: Create a dynamic post system to keep our audience updated with the latest news and information.\r - [x] **Fast & Secure Connection**: Optimize website performance for speed and ensure a secure connection.\r - [x] **Navbar Enhancement** 🚀: Improve the design and aesthetics of the navbar.\r - [x] **Code Cleanup** 🧹: Remove unnecessary comments and ensure code cleanliness.\r - [x] **Backend Integration** ⚙️: Integrate a backend system using Flask or another advanced backend solution.",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss build static/tailwind.css -o static/tailwind.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

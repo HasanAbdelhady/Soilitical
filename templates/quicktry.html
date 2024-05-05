@@ -1,0 +1,155 @@
+{% extends 'base.html' %} {% block content %}
+<div id="home-intro1" class="w-full relative h-dvh-full">
+  <div class="content w-11/12 xl:w-full absolute left-2/4 text-center">
+    <h1 class="w-full text-3xl -mb-1 md:text-5xl">
+      <span class="text-green-600">S</span>oilitical
+    </h1>
+    <p class="text-xl md:text-2xl">Your Personal Agriculture AI-Assistant</p>
+
+    <!-- Form -->
+    <form class="mt-8 w-full max-w-lg mx-auto" method="post">
+      <div class="font-bold text-xl w-full">
+        <!-- N Value -->
+        <div class="grid grid-cols-4 gap-6">
+          <div class="col-span-1">
+            <label
+              for="n_value"
+              class="block text-lg md:text-xl font-bold text-white"
+              >N (kg/ha)</label
+            >
+            <input
+              type="number"
+              name="n_value"
+              id="n_value"
+              min="0"
+              class="mt-1 focus:ring-indigo-300 md:py-2 md:px-3 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black"
+              required
+            />
+          </div>
+          <!-- P Value -->
+          <div class="col-span-1">
+            <label
+              for="p_value"
+              class="block text-lg md:text-xl font-bold text-white"
+              >P (kg/ha)</label
+            >
+            <input
+              type="number"
+              name="p_value"
+              id="p_value"
+              min="0"
+              class="mt-1 focus:ring-indigo-300 md:py-2 md:px-3 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black"
+              required
+            />
+          </div>
+          <!-- K Value -->
+          <div class="col-span-1">
+            <label
+              for="k_value"
+              class="block text-lg md:text-xl font-bold text-white"
+              >K (kg/ha)</label
+            >
+            <input
+              type="number"
+              name="k_value"
+              id="k_value"
+              min="0"
+              class="mt-1 focus:ring-indigo-300 md:py-2 md:px-3 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black"
+              required
+            />
+          </div>
+          <!-- PH Values -->
+          <div class="col-span-1">
+            <label
+              for="ph_values"
+              class="block text-lg md:text-xl font-bold text-white"
+              >PH
+            </label>
+            <input
+              type="number"
+              name="ph_values"
+              id="ph_values"
+              step="any"
+              min="1"
+              max="14"
+              class="mt-1 focus:ring-indigo-300 md:py-2 md:px-3 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black"
+              required
+            />
+          </div>
+        </div>
+        <div
+          class="grid w-full grid-cols-3 grid-flow-dense gap-5 px-6 md:px-20 mt-4"
+        >
+          <!-- Humidity -->
+          <div class="col-span-1">
+            <label
+              for="humidity"
+              class="block text-lg md:text-xl font-bold text-white"
+              >Humidity (%)</label
+            >
+            <input
+              type="number"
+              name="humidity"
+              id="humidity"
+              min="0"
+              max="100"
+              class="mt-1 focus:ring-indigo-300 md:py-2 md:px-3 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black"
+              required
+            />
+          </div>
+          <!-- Temperature -->
+          <div class="col-span-1">
+            <label
+              for="temperature"
+              class="block text-lg md:text-xl mx-font-bold text-white"
+              >Temperature (C°)</label
+            >
+            <input
+              type="number"
+              name="temperature"
+              id="temperature"
+              min="0"
+              max="65"
+              class="mt-1 focus:ring-indigo-300 md:py-2 md:px-3 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black"
+              required
+            />
+          </div>
+
+          <div class="col-span-1">
+            <label
+              for="temperature"
+              class="block text-lg md:text-xl font-bold text-white"
+              >Rainfall (mm/year)</label
+            >
+            <input
+              type="number"
+              name="rainfall"
+              id="temperature"
+              min="0"
+              class="mt-1 focus:ring-indigo-300 md:py-2 md:px-3 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md text-black"
+              required
+            />
+          </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="col-span-4">
+          <button type="submit" class="hero-btn inline-block text-xl font-bold">
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+    {% if prediction %}
+    <h1 class="text-3xl">Prediction: {{ prediction }}</h1>
+    <div class="flex w-full justify-center mt-4">
+      <img
+        id="img"
+        class="w-96 rounded-md"
+        src="../static/{{prediction}}.jpg"
+        alt=""
+      />
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

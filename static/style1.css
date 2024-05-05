@@ -1,0 +1,454 @@
+@import url("https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+:root {
+  --back-light: linear-gradient(
+    to right,
+    rgba(71, 255, 126, 0.4),
+    rgba(0, 0, 0, 0.5),
+    rgba(8, 107, 255, 0.4)
+  );
+  --back-dark: linear-gradient(
+    to right,
+    rgba(3, 145, 10, 0.8),
+    rgba(0, 0, 196, 0.8)
+  );
+  --intro-images-back: linear-gradient(
+    to right,
+    rgba(255, 38, 0, 0.4),
+    rgba(2, 2, 243, 0.4)
+  );
+  --intro-images-night: linear-gradient(
+    to right,
+    rgba(117, 4, 4, 0.5),
+    rgba(0, 0, 109, 0.5)
+  );
+}
+body {
+  font-family: "Akira Expanded Super Bold", Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 14px;
+  background: var(--back-light),
+    url("background.jpeg") center center / cover no-repeat fixed;
+}
+p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif !important;
+}
+/* Nav bar Styling */
+header.hide {
+  display: none;
+}
+footer {
+  background: rgb(241, 239, 239);
+  color: black;
+}
+footer i {
+  font-size: 2em;
+  margin: 0.4%;
+}
+#logo {
+  background: url("pngegg.png") no-repeat left center / contain;
+}
+nav.main {
+  flex-direction: row;
+}
+nav.main ul {
+  transition: all 0.5s;
+}
+nav.main ul li {
+  display: inline-block;
+  line-height: 50px;
+}
+nav.main ul li a {
+  border-right: 2px solid #00ff00;
+}
+nav.main a {
+  color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+nav.main a:hover {
+  color: #00ff00;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+.closelist {
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  padding: 1.5%;
+  margin-bottom: 3%;
+  margin-left: 3%;
+}
+.checkbtn {
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+#about-us-intro p,
+.img {
+  box-shadow: 0 10px 30px rgba(0, 0, 0);
+}
+#about-us-intro p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}
+#about-us-intro .img {
+  background: var(--intro-images-back),
+    url("Our\ Team.jpg") center center / cover;
+  height: 60vh;
+}
+#about-us-intro p:hover,
+#about-us-intro .img:hover {
+  border: 2px solid #ff4757;
+  animation: fadeInUpAndZoom 1s ease;
+  transform: scale(1.01);
+}
+#about-us-intro a {
+  padding: 5px;
+}
+#about-us-intro a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+#our-latest-post .latest {
+  border: 2px solid #fff;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0);
+  background: linear-gradient(
+    to right,
+    rgba(255, 38, 0, 0.4),
+    rgba(2, 2, 243, 0.4)
+  );
+}
+#our-latest-post .latest:hover {
+  scale: 1.02;
+  border: 2px solid #ff4757;
+}
+
+/* Night Mode specific styles */
+.night-mode #home-intro {
+  background: var(--intro-images-night),
+    url("MR BOYZ.jpg") center center / cover no-repeat fixed;
+}
+.night-mode #modeToggle {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+.checkbtn,
+.closelist {
+  color: white;
+}
+/* Mode Toggle Button */
+#modeToggle {
+  background-color: #f0f0f0;
+  color: black;
+  border: 2px solid #333;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+#modeToggle:hover {
+  background-color: #333;
+  color: #f0f0f0;
+  border-color: #f0f0f0;
+}
+#modeToggle {
+  border-radius: 15px;
+  margin-left: 10px;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(231, 15, 15, 0.688);
+  border-radius: 10px;
+}
+body::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* Home Intro Styling */
+#home-intro1 {
+  height: 90svh;
+}
+#home-intro2 {
+  height: 90svh;
+}
+.content {
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.hero-btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 34px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 3%;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: inset 2px 2px 2px 0px rgba(97, 180, 1, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  background: linear-gradient(
+    0deg,
+    rgba(2, 253, 107, 0.397) 0%,
+    rgba(4, 175, 255, 0.486) 100%
+  );
+  line-height: 42px;
+  border: none;
+}
+.hero-btn span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.hero-btn:before,
+.hero-btn:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 255, 57, 0.795);
+  box-shadow: -7px -7px 20px 0px rgba(0, 41, 175, 0.9),
+    -4px -4px 5px 0px rgba(9, 42, 233, 0.9), 7px 7px 20px 0px rgba(0, 0, 0, 0.2),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.hero-btn:before {
+  height: 0%;
+  width: 2px;
+}
+.hero-btn:after {
+  width: 0%;
+  height: 2px;
+}
+.hero-btn:hover {
+  color: rgb(43, 255, 166);
+  background: transparent;
+}
+.hero-btn:hover:before {
+  height: 100%;
+}
+.hero-btn:hover:after {
+  width: 100%;
+}
+.hero-btn span:before,
+.hero-btn span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: rgb(252, 1, 1);
+  box-shadow: -7px -7px 20px 0px rgba(199, 0, 0, 0.9),
+    -4px -4px 5px 0px rgba(250, 43, 43, 0.9),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.hero-btn span:before {
+  width: 2px;
+  height: 0%;
+}
+.hero-btn span:after {
+  height: 2px;
+  width: 0%;
+}
+.hero-btn span:hover:before {
+  height: 100%;
+  margin-left: -10px;
+}
+.hero-btn span:hover:after {
+  width: 110%;
+  margin-top: -3px;
+  margin-left: -5px;
+}
+
+#userHistoryList {
+  background: linear-gradient(
+    to right,
+    rgba(3, 68, 22, 0.8),
+    rgba(0, 0, 0, 0.5)
+  );
+}
+/* About Us Section */
+
+#about-us {
+  height: 100vh;
+}
+.about-us-back {
+  background: var(--intro-images-back),
+    url("background.jpeg") center center / cover no-repeat fixed;
+}
+.night-mode .about-us-back {
+  background: var(--intro-images-night),
+    url("Team\ Photo.png") center center / cover no-repeat fixed;
+}
+.hackathon {
+  background: var(--intro-images-back),
+    url("Hackathon.jpg") center center / cover no-repeat fixed !important;
+}
+.night-mode .hackathon {
+  background: var(--intro-images-night),
+    url("Hackathon.jpg") center center / cover no-repeat fixed !important;
+}
+
+.our-team {
+  background: var(--intro-images-back),
+    url("Our\ Team.jpg") center center / cover no-repeat fixed;
+}
+.night-mode .our-team {
+  background: var(--intro-images-night),
+    url("Our\ Team.jpg") center center / cover no-repeat fixed;
+}
+/* Keyframe animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframe animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* مشكلة ال Navbar هنا */
+/* Responsive adjustments */
+@media (max-width: 400px) {
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav ul {
+    position: absolute;
+    width: 60%;
+    height: 60vh;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+    margin-top: 60px;
+    background-color: rgba(131, 248, 120, 0.322);
+    top: 60px; /* Adjusted to push the navbar below the header 
+    display: none;*/
+  }
+
+  nav ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  nav ul li a {
+    border: none;
+  }
+  nav a {
+    margin: 5px 0;
+  }
+  .checkbtn,
+  .closelist {
+    display: flex;
+  }
+  #check:checked ~ ul {
+    left: 0;
+    display: block;
+  }
+}
+
+header h1 {
+  font-size: 2em;
+  color: white;
+}
+/* تعديلات للشاشات الكبيرة */
+
+@media (max-width: 768px) {
+  #home-intro h1 {
+    font-size: 2em;
+    margin-bottom: -6px;
+  }
+
+  #home-intro p {
+    font-size: 1em;
+  }
+  .hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 3%;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.5em;
+    border-radius: 5px;
+    line-height: 12px;
+  }
+}
+@media (min-width: 601px) and (max-width: 1024px) {
+  #modeToggle {
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 1025px) {
+  #modeToggle {
+    padding: 12px 25px; /* Larger padding for a more prominent button */
+    border-radius: 20px;
+    margin-left: 10px;
+  }
+}
+@media (min-width: 1536px) {
+  #imgs-hackathon ul {
+    margin-left: 32rem;
+  }
+}
+/* Keyframe animation */
+@keyframes fadeInUpAndZoom {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95); /* Adjust the initial offset and scaling factor */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
