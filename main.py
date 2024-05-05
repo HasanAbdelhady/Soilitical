@@ -81,14 +81,26 @@ def signup():
 def dashboard():
     if 'username' in session:
         user = User.query.filter_by(username=session['username']).first()
+        if not user:
+            return redirect(url_for('login'))  # Invalid session, redirect to login
+        
         if request.method == 'POST':
-            N = request.form['n_value']
-            P = request.form['p_value']
-            K = request.form['k_value']
-            PH = request.form['ph_values']
-            Humidity = request.form['humidity']
-            Temp = request.form['temperature']
-            rainfall = request.form['rainfall']
+            # Input validation
+            required_fields = ['n_value', 'p_value', 'k_value', 'ph_values', 'humidity', 'temperature', 'rainfall']
+            if not all(field in request.form for field in required_fields):
+                return 'Missing fields', 400
+            
+            # Sanitize input values
+            try:
+                N = float(request.form['n_value'])
+                P = float(request.form['p_value'])
+                K = float(request.form['k_value'])
+                PH = float(request.form['ph_values'])
+                Humidity = float(request.form['humidity'])
+                Temp = float(request.form['temperature'])
+                rainfall = float(request.form['rainfall'])
+            except ValueError:
+                return 'Invalid input values', 400
 
             values_list = [[N, P, K, Humidity, Temp, PH, rainfall]]
 
@@ -111,10 +123,12 @@ def dashboard():
             try:
                 db.session.add(history_entry)
                 db.session.commit()
-            except:
-                return 'Error Occurred'
+            except Exception as e:
+                print(e)
+                return 'Error Occurred', 500
             
             return redirect(url_for("dashboard", username=session['username'], prediction=prediction[0], history=user.history))
+        
         prediction = request.args.get('prediction')
         return render_template("dashboard.html", username=session['username'], prediction=prediction, history=user.history)
 
@@ -147,8 +161,9 @@ def quicktry():
     return render_template("quicktry.html")
 
 
+# Run the application
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
 
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
