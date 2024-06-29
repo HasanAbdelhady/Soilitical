@@ -1,12 +1,5 @@
 @import url("https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css");
 
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-}
 :root {
   --back-light: linear-gradient(
     to right,
@@ -18,16 +11,6 @@
     to right,
     rgba(3, 145, 10, 0.8),
     rgba(0, 0, 196, 0.8)
-  );
-  --intro-images-back: linear-gradient(
-    to right,
-    rgba(255, 38, 0, 0.4),
-    rgba(2, 2, 243, 0.4)
-  );
-  --intro-images-night: linear-gradient(
-    to right,
-    rgba(117, 4, 4, 0.5),
-    rgba(0, 0, 109, 0.5)
   );
 }
 body {
@@ -54,7 +37,7 @@ footer i {
   margin: 0.4%;
 }
 #logo {
-  background: url("pngegg.png") no-repeat left center / contain;
+  background: url("logo3.png") no-repeat left center / contain;
 }
 nav.main {
   flex-direction: row;
@@ -102,47 +85,6 @@ nav.main a:hover {
 #check {
   display: none;
 }
-#about-us-intro p,
-.img {
-  box-shadow: 0 10px 30px rgba(0, 0, 0);
-}
-#about-us-intro p {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-weight: bold;
-}
-#about-us-intro .img {
-  background: var(--intro-images-back),
-    url("Our\ Team.jpg") center center / cover;
-  height: 60vh;
-}
-#about-us-intro p:hover,
-#about-us-intro .img:hover {
-  border: 2px solid #ff4757;
-  animation: fadeInUpAndZoom 1s ease;
-  transform: scale(1.01);
-}
-#about-us-intro a {
-  padding: 5px;
-}
-#about-us-intro a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-}
-
-#our-latest-post .latest {
-  border: 2px solid #fff;
-  transition: box-shadow 0.3s ease-in-out;
-  box-shadow: 0 10px 30px rgba(0, 0, 0);
-  background: linear-gradient(
-    to right,
-    rgba(255, 38, 0, 0.4),
-    rgba(2, 2, 243, 0.4)
-  );
-}
-#our-latest-post .latest:hover {
-  scale: 1.02;
-  border: 2px solid #ff4757;
-}
 
 /* Night Mode specific styles */
 .night-mode #home-intro {
@@ -158,45 +100,9 @@ nav.main a:hover {
 .closelist {
   color: white;
 }
-/* Mode Toggle Button */
-#modeToggle {
-  background-color: #f0f0f0;
-  color: black;
-  border: 2px solid #333;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  font-weight: bold;
-}
-#modeToggle:hover {
-  background-color: #333;
-  color: #f0f0f0;
-  border-color: #f0f0f0;
-}
-#modeToggle {
-  border-radius: 15px;
-  margin-left: 10px;
-}
-body::-webkit-scrollbar {
-  width: 12px;
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(231, 15, 15, 0.688);
-  border-radius: 10px;
-}
-body::-webkit-scrollbar-track {
-  background-color: rgba(255, 255, 255, 0.1);
-}
 /* Home Intro Styling */
 #home-intro1 {
   height: 90svh;
-}
-#home-intro2 {
-  height: 90svh;
-}
-.content {
-  top: 45%;
-  transform: translate(-50%, -50%);
 }
 .hero-btn {
   display: inline-block;
@@ -293,60 +199,8 @@ body::-webkit-scrollbar-track {
   );
 }
 /* About Us Section */
-
-#about-us {
-  height: 100vh;
-}
-.about-us-back {
-  background: var(--intro-images-back),
-    url("background.jpeg") center center / cover no-repeat fixed;
-}
-.night-mode .about-us-back {
-  background: var(--intro-images-night),
-    url("Team\ Photo.png") center center / cover no-repeat fixed;
-}
-.hackathon {
-  background: var(--intro-images-back),
-    url("Hackathon.jpg") center center / cover no-repeat fixed !important;
-}
-.night-mode .hackathon {
-  background: var(--intro-images-night),
-    url("Hackathon.jpg") center center / cover no-repeat fixed !important;
-}
-
-.our-team {
-  background: var(--intro-images-back),
-    url("Our\ Team.jpg") center center / cover no-repeat fixed;
-}
-.night-mode .our-team {
-  background: var(--intro-images-night),
-    url("Our\ Team.jpg") center center / cover no-repeat fixed;
-}
-/* Keyframe animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* Keyframe animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-/* مشكلة ال Navbar هنا */
 /* Responsive adjustments */
-@media (max-width: 400px) {
+@media (max-width: 420px) {
   header {
     flex-wrap: wrap;
     justify-content: center;
@@ -363,8 +217,8 @@ body::-webkit-scrollbar-track {
     text-align: center;
     transition: all 0.5s;
     margin-top: 60px;
-    background-color: rgba(131, 248, 120, 0.322);
-    top: 60px; /* Adjusted to push the navbar below the header 
+    background-color: rgba(131, 248, 120, 0.726);
+    top: 60px; /* Adjusted to push the navbar below the header
     display: none;*/
   }
 
@@ -402,23 +256,6 @@ header h1 {
 
   #home-intro p {
     font-size: 1em;
-  }
-  .hero-btn {
-    display: inline-block;
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
-    border-radius: 6px;
-    margin: 3%;
-    color: #fff;
-    border-radius: 5px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
-    padding: 10px 20px;
-    font-size: 0.5em;
-    border-radius: 5px;
-    line-height: 12px;
   }
 }
 @media (min-width: 601px) and (max-width: 1024px) {
