@@ -1,1 +1,57 @@
 
+{% extends 'base.html' %} {% block content %}
+<div class="text-black flex items-center justify-center min-h-screen">
+  <div
+    class="bg-white p-10 font-mono opacity-75 rounded-lg shadow-2xl shadow-black text-center"
+  >
+    <h1 class="text-3xl font-mono font-bold mb-6">Live Readings</h1>
+    <div
+      id="sensorData"
+      class="text-lg sm:text-xl m-4 text-blue-900 font-black"
+    ></div>
+    <a
+      href="/download_excel"
+      class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded shadow-sm"
+      >Download Data</a
+    >
+  </div>
+</div>
+<script>
+  function refreshSensorData() {
+    fetch("/get-sensor-data")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && Object.keys(data).length > 0) {
+          const sensorDataElement = document.getElementById("sensorData");
+          sensorDataElement.innerHTML = `
+            <div class='p-1'>Temperature: <span class="text-red-600">${data.temperature}°C</span></div>
+            <div class='p-1'>Soil Moisture:<span class="text-red-600"> ${data.soil_moisture}</span></div>
+            <div class='p-1'>Humidity: <span class="text-red-600">${data.humidity}%</span></div>
+            <div class='p-1'>Rainfall:<span class="text-red-600"> ${data.rainfall}</span></div>
+            <div class='p-1'>Water pH:<span class="text-red-600"> ${data.water_ph}</span></div>
+            <div class='p-1'>Air Quality (MQ-135):<span class="text-red-600"> ${data.mq135}</span></div>
+            <div class='p-1'>Carbon Monoxide (MQ-7):<span class="text-red-600"> ${data.mq7}</span></div>
+            <div class='p-1'>Hydrogen (MQ-8):<span class="text-red-600"> ${data.mq8}</span></div>
+            <div class='p-1'>Alcohol (MQ-3):<span class="text-red-600"> ${data.mq3}</span></div>
+            <div class='p-1'>Natural Gas (MQ-5):<span class="text-red-600"> ${data.mq5}</span></div>
+            <div class='p-1'>Flammable Gas Sensor (MQ-9):<span class="text-red-600"> ${data.mq9}</span></div>
+          `;
+
+        } else {
+          const sensorDataElement = document.getElementById("sensorData");
+          sensorDataElement.textContent = "Data not sent yet";
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching sensor data:", error);
+        const sensorDataElement = document.getElementById("sensorData");
+        sensorDataElement.textContent = "Error fetching sensor data";
+        imgElement.style.display = "none";
+      });
+  }
+
+  setInterval(refreshSensorData, 3000);
+
+  refreshSensorData();
+</script>
+{% endblock %}
